@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Language Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h1>C Language Quiz</h1>
+
+        <form id="quiz-form">
+            <!-- Question 1 -->
+            <div class="quiz-question">
+                <h3>1. What is the correct extension for C language files?</h3>
+                <label><input type="radio" name="q1" value="wrong"> .cpp</label><br>
+                <label><input type="radio" name="q1" value="right"> .c</label><br>
+                <label><input type="radio" name="q1" value="wrong"> .java</label><br>
+                <label><input type="radio" name="q1" value="wrong"> .py</label><br>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-question">
+                <h3>2. Which of the following is a loop in C?</h3>
+                <label><input type="radio" name="q2" value="wrong"> if</label><br>
+                <label><input type="radio" name="q2" value="wrong"> switch</label><br>
+                <label><input type="radio" name="q2" value="right"> for</label><br>
+                <label><input type="radio" name="q2" value="wrong"> break</label><br>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-question">
+                <h3>3. Which function is used to print output in C?</h3>
+                <label><input type="radio" name="q3" value="wrong"> scanf()</label><br>
+                <label><input type="radio" name="q3" value="right"> printf()</label><br>
+                <label><input type="radio" name="q3" value="wrong"> gets()</label><br>
+                <label><input type="radio" name="q3" value="wrong"> puts()</label><br>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="quiz-question">
+                <h3>4. What is the default return type of a function in C?</h3>
+                <label><input type="radio" name="q4" value="right"> int</label><br>
+                <label><input type="radio" name="q4" value="wrong"> void</label><br>
+                <label><input type="radio" name="q4" value="wrong"> char</label><br>
+                <label><input type="radio" name="q4" value="wrong"> float</label><br>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="quiz-question">
+                <h3>5. What is the output of the following code snippet?</h3>
+                <pre>
+                    int a = 5, b = 3;
+                    printf("%d", a + b);
+                </pre>
+                <label><input type="radio" name="q5" value="wrong"> 53</label><br>
+                <label><input type="radio" name="q5" value="wrong"> 15</label><br>
+                <label><input type="radio" name="q5" value="right"> 8</label><br>
+                <label><input type="radio" name="q5" value="wrong"> 5</label><br>
+            </div>
+
+            <button type="submit">Submit Quiz</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('quiz-form');
+        const resultDiv = document.getElementById('result');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let score = 0;
+            const totalQuestions = 5;
+
+            const formData = new FormData(form);
+
+            for (let [key, value] of formData.entries()) {
+                if (value === 'right') {
+                    score++;
+                }
+            }
+
+            resultDiv.innerHTML = `<h2>You scored ${score} out of ${totalQuestions}</h2>`;
+        });
+    </script>
+
+</body>
+</html>
